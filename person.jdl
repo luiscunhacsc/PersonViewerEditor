@@ -1,0 +1,21 @@
+entity Person {
+  firstName String required minlength(2) maxlength(100),
+  lastName String maxlength(100),
+  birthDate LocalDate required,
+  gender Gender required,
+  email String pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/),
+  phone String maxlength(20),
+  taxId String minlength(9) maxlength(9),
+  address String maxlength(255)
+}
+
+enum Gender {
+  MALE,
+  FEMALE,
+  OTHER,
+  NOT_SPECIFIED
+}
+
+dto Person with mapstruct
+paginate Person with pagination
+service Person with serviceClass
